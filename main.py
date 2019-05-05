@@ -98,7 +98,15 @@ def check_date():
             print("Helytelen nap")
         elif int(userdate.split('.')[1]) in [4, 6, 9, 11] and int(userdate.split('.')[2]) > 30:
             print("Helytelen nap")
-        # Februárt ne felejtsd el!!!
+        # FEBRUÁR:
+        elif int(userdate.split('.')[1]) is 2 and int(userdate.split('.')[2]) > 28:
+            print("Február csak 28 napos")
+        elif (userdate.split('.')[0] % 4) == 0 and int(userdate.split('.')[1]) is 2 and int(userdate.split('.')[2]) > 27:
+            print("Szökőévben max 27 nap!")
+        elif (userdate.split('.')[0] % 100) == 0 and int(userdate.split('.')[1]) is 2 and int(userdate.split('.')[2]) > 28:
+            print("100 évente kimarad úgyhogy 28 napos!")
+        elif (userdate.split('.')[0] % 400) == 0 and int(userdate.split('.')[1]) is 2 and int(userdate.split('.')[2]) > 27:
+            print("400 meg megint van!")
         else:
             break
     userdate = re.sub('[a-zA-Z,:()" "]', "", userdate)
