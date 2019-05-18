@@ -17,6 +17,14 @@
 #     if playerhp < 0:
 #         print("OVERKILL!")
 
+# a szovegdarabokat erdemes lenne itt definialni kulon:
+text1 = """Szörnyű fejfájással az erdőben ébredsz. Nem tudod hogyan kerültél oda. Ahogy körülnézel minden irányban
+megtépázott fákat, letört ágakat, vizes füvet, alatta sáros talajt látsz. Lassan sötétedik, valószínüleg
+átaluttad az egész napot. Az eget felhők borítják és erős szél fúj. Előrelépsz egyet, és csak akkor veszed
+észre, hogy nincs rajtad cipő, mikor a sáros vízbe lépsz. A távolban egy kunyhó fényeire leszel figyelmes.
+Elmész a kunyhóhoz, vagy inkább keresel egy rejtekhelyet a fák között éjszakára?\n (Ha a kunyhó felé veszed"
+az irányt,írd be az 1-es számot. Ha inkább az erdőben probálsz meghúzódni, írd be a 2-es számot.)"""
+
 while True:
     indítás = str(input("Az I rész indításhoz írja be:.........START I\n" # nem szerencses (nem ASCII) ekezetes karaktereket hasznalni a valtozoknal
                         "A II rész indításához írja be:........START II\n"))
@@ -24,12 +32,7 @@ while True:
         break
 if indítás == "START I":
     print("A játék elindult!\n \nI rész: LEGENDA\n")
-    print("Szörnyű fejfájással az erdőben ébredsz. Nem tudod hogyan kerültél oda. Ahogy körülnézel minden irányban\n"
-          "megtépázott fákat, letört ágakat, vizes füvet, alatta sáros talajt látsz. Lassan sötétedik, valószínüleg\n"
-          "átaluttad az egész napot. Az eget felhők borítják és erős szél fúj. Előrelépsz egyet, és csak akkor veszed\n"
-          "észre, hogy nincs rajtad cipő, mikor a sáros vízbe lépsz. A távolban egy kunyhó fényeire leszel figyelmes.\n"
-          "Elmész a kunyhóhoz, vagy inkább keresel egy rejtekhelyet a fák között éjszakára?\n (Ha a kunyhó felé veszed"
-          "az irányt,írd be az 1-es számot. Ha inkább az erdőben probálsz meghúzódni, írd be a 2-es számot.)")
+    print(text1)
     while True:
         valasztas1 = str(input("Válasszon: 1 vagy 2\n"))
         if valasztas1 in ["1", "2"]:
@@ -48,6 +51,8 @@ if indítás == "START I":
               "(Ha dörömbölni kezdesz az ajtón, írd be az 1-es számot. Ha inkább az ablakon próbálsz bejutni, írd be"
               "a 2-es számot.")
         valasztas2 = str(input("Válasszon: 1 vagy 2\n"))
+        # ertelemszeruen itt is egy while kell. ha nem lesz sok valasztasi lehetoseg csak epitsd be beagyazva mint
+        # most vannak a dolgok, ha 4-5-nel tobb valasztas van akkor erdemes mashogy felepiteni a dolgot.
         if valasztas2 == "1":
             print("Úgy döntöttél, dörömbölni kezdesz az ajtón. Egy kis idő elteltével a szuszogás abbamarad, és egy\n"
                   "vénember hangját hallod meg, ahogy ordítani kezd a házban:\n"
