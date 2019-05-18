@@ -17,8 +17,11 @@
 #     if playerhp < 0:
 #         print("OVERKILL!")
 
-indítás = str(input("Az I rész indításhoz írja be:.........START I\n"
-                    "A II rész indításához írja be:........START II\n"))
+while True:
+    indítás = str(input("Az I rész indításhoz írja be:.........START I\n" # nem szerencses (nem ASCII) ekezetes karaktereket hasznalni a valtozoknal
+                        "A II rész indításához írja be:........START II\n"))
+    if indítás in ["START I", "START II"]: # a kilepesre nincs opcio, de a START II-nek sincs meg ertelme
+        break
 if indítás == "START I":
     print("A játék elindult!\n \nI rész: LEGENDA\n")
     print("Szörnyű fejfájással az erdőben ébredsz. Nem tudod hogyan kerültél oda. Ahogy körülnézel minden irányban\n"
@@ -27,7 +30,10 @@ if indítás == "START I":
           "észre, hogy nincs rajtad cipő, mikor a sáros vízbe lépsz. A távolban egy kunyhó fényeire leszel figyelmes.\n"
           "Elmész a kunyhóhoz, vagy inkább keresel egy rejtekhelyet a fák között éjszakára?\n (Ha a kunyhó felé veszed"
           "az irányt,írd be az 1-es számot. Ha inkább az erdőben probálsz meghúzódni, írd be a 2-es számot.)")
-    valasztas1 = str(input("Válasszon: 1 vagy 2\n"))
+    while True:
+        valasztas1 = str(input("Válasszon: 1 vagy 2\n"))
+        if valasztas1 in ["1", "2"]:
+            break
     if valasztas1 == "1":
         print("Úgy döntöttél hogy a kunyhóban akarsz menedéket keresni magadnak. Ahogyan a sáros csúszós ösvényen\n"
               "sétálsz, rájössz, hogy a kunyhó messzebb van mint hitted. Az idő előrehaladtával egyre sötétebb és\n"
@@ -128,5 +134,5 @@ if indítás == "START I":
               "ÚJ MÉRFÖLDKŐ - állatkedvelő (Halj meg profi módon az első döntésnél!)\n")
 if indítás == "START II":
     print("A játék elindult!\n \nII. rész\n")
-if indítás != "START I" or indítás != "START II":
-    print("\nEz nincs a lehetőségek között! Kérem indítsa újra a programot.")
+# if indítás != "START I" or indítás != "START II":
+#     print("\nEz nincs a lehetőségek között! Kérem indítsa újra a programot.") ez igy mar nem kell, a while elintezi az elejen
